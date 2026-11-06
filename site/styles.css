@@ -127,3 +127,27 @@ footer .footer-documentation:focus-visible{outline:3px solid #83d7c7;outline-off
 .storyboard-doc a:focus-visible{outline:3px solid #19a98b;outline-offset:3px}
 @media(max-width:760px){.story-panel-grid{grid-template-columns:1fr}.story-figure{padding:14px}.story-window{min-height:0}.story-flow{flex-wrap:wrap}.story-flow>div{flex:1 1 190px}.story-flow>b{transform:rotate(90deg)}}
 @media print{.story-figure{overflow:visible}.story-sitemap{min-width:0}.story-panel-grid{break-inside:avoid}.story-panel,.story-figure{break-inside:avoid}.story-flow{overflow:visible}}
+
+/* Academic timeline Gantt. The production site renders the chart natively, without external libraries. */
+.ag-legend{display:flex;flex-wrap:wrap;gap:12px 22px;margin:18px 0 22px;color:#506b73;font-size:12px;font-weight:700}
+.ag-legend span{display:inline-flex;align-items:center;gap:8px}
+.ag-key{width:17px;height:10px;display:inline-block;border-radius:3px}
+.ag-key.ag-complete{background:#208c79}.ag-key.ag-active{background:#397b9c}.ag-key.ag-planned{background:#a9c6c8}.ag-key.ag-milestone{background:#bf8b46;transform:rotate(45deg);width:10px;height:10px;margin:0 4px}
+.ag-figure{background:#fff;border:1px solid #d5e4e0;border-radius:10px;padding:22px 20px;margin:25px 0 38px}
+.ag-scroll{overflow-x:auto;overscroll-behavior-x:contain}
+.ag-chart{min-width:870px}
+.ag-head,.ag-task{display:grid;grid-template-columns:260px minmax(0,1fr);gap:14px;align-items:center}
+.ag-head{padding-bottom:12px;border-bottom:2px solid #b8d4cc}
+.ag-head-label{font-weight:800;font-size:12px;color:#254754;text-transform:uppercase;letter-spacing:.06em}
+.ag-head-ticks{height:35px;display:flex;align-items:end;justify-content:space-between;font-size:11px;color:#496a72;font-weight:700}
+.ag-group{margin:16px 0 8px;padding:9px 12px;background:#e9f3ef;border-left:3px solid #268b78;color:#1b5860;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.ag-task{min-height:53px;border-bottom:1px solid #e6eeeb}
+.ag-task-name{display:flex;flex-direction:column;gap:3px;padding:5px 0;font-size:12px;font-weight:700;color:#25434d;line-height:1.3}
+.ag-task-name small{font-size:10px;font-weight:400;color:#67808a}
+.ag-track{height:34px;position:relative;background:repeating-linear-gradient(to right,transparent 0,transparent calc(24.1379% - 1px),#dce9e5 calc(24.1379% - 1px),#dce9e5 24.1379%)}
+.ag-bar{position:absolute;top:10px;height:14px;display:block;border-radius:4px;min-width:5px;box-shadow:0 1px 2px #102a3815}
+.ag-bar.ag-complete{background:#208c79}.ag-bar.ag-active{background:#397b9c}.ag-bar.ag-planned{background:#a9c6c8;border:1px solid #7da9b0}
+.ag-bar.ag-milestone{height:13px;width:13px!important;top:10px;margin-left:-3px;min-width:0;background:#bf8b46;transform:rotate(45deg);border-radius:2px}
+.ag-figure figcaption{margin-top:18px;color:#5a727a;font-size:12px;line-height:1.6}
+@media(max-width:760px){.ag-figure{padding:12px}.ag-head,.ag-task{grid-template-columns:245px minmax(0,1fr)}}
+@media print{.ag-figure{break-inside:avoid}.ag-scroll{overflow:visible}.ag-chart{min-width:0}.ag-head,.ag-task{grid-template-columns:240px minmax(0,1fr)}}
