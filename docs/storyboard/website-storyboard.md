@@ -155,4 +155,4 @@ The production model requires real identity controls, backend authorization, pri
 - [ ] Verify responsive layouts at mobile and desktop widths.
 - [ ] Capture final screenshots for the submitted project report.
 
-**Source:** ISM 4300 Project 3, Project Consultants Plus case. The specific navigation, layout, and security design are the student team's proposed implementation, not features specified by the case.
+**Source:** ISM 4300 Project 3, Project Consultants Plus case. The specific navigation, layout, and security design are the team's proposed implementation, not features specified by the case.
