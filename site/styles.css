@@ -20,3 +20,7 @@ header nav{flex-wrap:wrap;gap:18px}
 
 @media(max-width:800px){.page-hero{grid-template-columns:1fr}.hero-outline{display:none}.feature-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Discreet project documentation entry, intentionally outside main navigation */
+footer .footer-documentation{display:inline-block;margin:9px 16px 9px 0;color:#83d7c7;text-decoration:underline;text-underline-offset:4px;font-size:12px;font-weight:600}
+footer .footer-documentation:focus-visible{outline:3px solid #83d7c7;outline-offset:4px}
