@@ -68,7 +68,7 @@ Assuming 22 Microsoft 365 Business Premium seats, two Entra P2 users, QuickBooks
 
 **Phase 5 — July–August 2027: cutover and stabilization.** Obtain signed approvals after reconciliation; freeze and revalidate closing data, transfer responsible processing duties, retain export evidence, reconcile first production cycles, and preserve contracted rollback/assistance provisions. Avoid a big-bang switch across all financial functions on the same day.
 
-The schedule depends on payroll setup, vendor export rights, staff availability, integration feasibility and reconciliation success. A complete, dated Gantt and predecessor matrix is in the implementation appendix.
+The schedule depends on payroll setup, vendor export rights, staff availability, integration feasibility and reconciliation success. Three coordinated Gantt views and a predecessor matrix are in the implementation appendix: an academic team-delivery chart (November 2026), the assignment-required fictional PCP migration Gantt (December 2026–August 2027), and a combined roadmap that explicitly separates the university submission from the future company implementation. These are distinct schedules; academic completion does not authorize a PCP production cutover.
 
 ## 6. Network, Communications, Data Flows and Security
 The proposed communications environment puts Teams channels, business email and SharePoint documents under centralized identity governance. Field consultants should collaborate through managed user accounts or carefully scoped external access while business information is classified and shared according to engagement need. This is a remote-friendly operating model, not a requirement to route all collaboration through PCP's small office DSL connection.
