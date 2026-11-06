@@ -70,3 +70,9 @@ footer .footer-documentation:focus-visible{outline:3px solid #83d7c7;outline-off
 .doc-table th,.doc-table td{text-align:left;vertical-align:top;padding:14px;border:1px solid #d4e3df;font-size:13px;line-height:1.6}
 .doc-table th{background:#e2f0e9;color:#174556}.doc-steps{padding-left:25px}.doc-steps li{margin-bottom:14px}
 @media(max-width:760px){.doc-content{padding:35px 18px 55px}.doc-cards{grid-template-columns:1fr}.arch-admin-row{flex-direction:column}.arch-admin-row .arch-node{width:100%;flex:auto}.arch-admin-row .arch-arrow{transform:rotate(90deg)}.architecture-figure{padding:15px}}
+
+/* Context and Level 0 DFD documentation */
+.dfd-figure{margin:28px 0 38px;padding:22px;background:#fff;border:1px solid #d6e5e1;border-radius:9px;overflow-x:auto}
+.dfd-svg{display:block;width:100%;height:auto;min-width:650px;background:#fff}
+.dfd-figure figcaption{font-size:12px;color:#58727d;line-height:1.6;margin-top:16px}
+@media(max-width:760px){.dfd-figure{padding:12px}.dfd-svg{min-width:740px}}
