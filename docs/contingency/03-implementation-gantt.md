@@ -1,48 +1,120 @@
-# Implementation Gantt and Dependency Register
-**PCP Project 3 | Planned real-world rollout — not academic work already performed**
+# Three-Gantt Project Plan and Dependency Register
+**PCP Project 3 | Academic delivery and hypothetical company implementation | Updated November 6, 2026**
 
-The professor requires a Gantt showing **how outsourced payroll, billing, AR/AP, and contracts return to PCP staff**. This is a proposed project implementation from December 2026 through August 2027; it is not the student team's November 2026 development schedule.
+There are **two separate projects** in this case: (1) the student group's assignment, due **November 30, 2026**, and (2) a **fictional PCP production rollout** planned for **December 2026–August 2027**. The third diagram is an integrated roadmap showing their relationship, not a claim that the class group will perform the real migration. All dates outside the assignment deadline are **proposed planning assumptions**.
 
-## Figure 4. Proposed eight-month implementation Gantt
-Render this Mermaid source with a compatible diagram tool (GitHub Markdown supports Mermaid) and export the rendered chart as an image for Word/PowerPoint or recreate it in Excel / MS Project. **A code block by itself is not the requested finished Gantt image.**
+**Use in final submission:** The professor specifically requires a Gantt for moving payroll, billing, accounts payable/receivable and related functions in-house. **Gantt B is the required implementation view.** Gantt A strengthens evidence of academic project coordination, and Gantt C illustrates the staged handoff from design proposal to hypothetical execution. Render each Mermaid diagram in GitHub or another Mermaid-capable tool and export it as an image for the report; raw Markdown source is not a finished figure. Calendars are inclusive ranges and deliberately do **not** exclude weekends, so checkpoint dates do not silently drift.
+
+## Gantt A — Academic assignment delivery, November 2–30, 2026
 
 ```mermaid
 gantt
-    title PCP in-house business systems transition — proposed implementation
-    dateFormat  YYYY-MM-DD
-    axisFormat  %b %Y
-    excludes weekends
-    section Governance and discovery
-    Kickoff and scope authorization       :g1, 2026-12-01, 10d
-    Financial/process inventory          :g2, after g1, 15d
-    Vendor due diligence and final quote :g3, 2026-12-15, 20d
-    Budget and solution gate             :milestone, gate1, 2027-01-15, 0d
-    section Cloud and access foundation
-    Tenant collaboration and role setup  :f1, 2027-01-18, 25d
-    Managed endpoints and PAW baseline   :f2, 2027-01-25, 25d
-    Accounting and payroll test tenants  :f3, 2027-02-01, 25d
-    Security and access gate             :milestone, gate2, 2027-03-05, 0d
-    section Client and financial migration
-    Access VB mapping and data cleanup   :d1, 2027-02-15, 35d
-    Client contact import rehearsal      :d2, 2027-03-22, 20d
-    COA vendor customer opening balances :d3, 2027-03-22, 25d
-    Invoice AP AR process configuration  :d4, 2027-04-12, 25d
-    Payroll and contractor validation    :d5, 2027-04-12, 25d
-    section Validation and training
-    Office staff and consultant pilot    :t1, 2027-05-17, 20d
-    Parallel billing AP AR cycles        :t2, 2027-06-01, 30d
-    Parallel payroll tax reconciliation  :t3, 2027-06-01, 30d
-    Access backup and recovery testing   :t4, 2027-06-08, 15d
-    Reconciliation acceptance gate       :milestone, gate3, 2027-07-12, 0d
-    section Cutover and stabilization
-    Final data extract and audit signoff :c1, 2027-07-13, 10d
-    Staged financial process cutover     :c2, 2027-07-27, 15d
-    Hypercare and first month close      :c3, 2027-08-10, 15d
-    Final handoff and project closure    :milestone, gate4, 2027-08-31, 0d
+    title A - ISM 4300 team assignment timeline (2026)
+    dateFormat YYYY-MM-DD
+    axisFormat %b %d
+    section Technical prototype
+    Requirements and scope review          :done, a1, 2026-11-02, 2026-11-06
+    Website and employee workspace          :done, a2, 2026-11-02, 2026-11-06
+    Network communications and DFD drafts   :done, a3, 2026-11-03, 2026-11-06
+    Public storyboard rendering             :done, a4, 2026-11-06, 2026-11-06
+    section Business recommendation
+    Product shortlist and license research  :active, a5, 2026-11-06, 2026-11-13
+    Migration operating model and RACI      :a6, 2026-11-09, 2026-11-18
+    Proposed company implementation Gantt   :a7, 2026-11-09, 2026-11-18
+    Individual sections ready for review    :milestone, am1, 2026-11-18, 0d
+    section Integration and submission
+    Written report and figures              :a8, 2026-11-18, 2026-11-23
+    References cost and requirements QA     :a9, 2026-11-23, 2026-11-25
+    Integration candidate review            :milestone, am2, 2026-11-25, 0d
+    Contingency edits and package            :a10, 2026-11-26, 2026-11-29
+    Academic submission deadline             :milestone, am3, 2026-11-30, 0d
 ```
 
-*Gantt dates are planning assumptions, not contractor commitments or approved delivery dates. Actual calendars and holidays affect effort. Bars are illustrative activities; the milestone gates govern progression and may cause dates to change.*
+**Status and ownership note:** `done` records the technical components already committed to GitHub; it does not certify that the group has accepted every component or that the final submission exists. `active` indicates work underway in the contingency materials, not confirmed progress by other students. Other tasks are proposed checkpoints whose ownership and actual progress require group confirmation. In this diagram, the November 6 storyboard corresponds to the published visual storyboard, not only the original Markdown diagram.
 
+## Gantt B — Fictional PCP implementation, December 2026–August 2027
+
+**This is the assignment-required company migration chart.** It specifically covers the transition from Consolidated Business Services to PCP-managed accounting, billing, AP/AR, contract administration and payroll control. Cloud vendors can still host accounting/payroll software and perform authorized tax/payment processing; “in-house” means PCP staff assume responsibility for governance, approvals, reconciliation and daily operation.
+
+```mermaid
+gantt
+    title B - PCP proposed financial operations migration (2026-2027)
+    dateFormat YYYY-MM-DD
+    axisFormat %b %Y
+    section Discovery and authorization
+    Kickoff and inventory                    :b1, 2026-12-01, 2026-12-18
+    Provider exports and contract review     :b2, 2026-12-07, 2027-01-08
+    Vendor comparison quotes and approval    :b3, 2026-12-15, 2027-01-15
+    Solution and budget approval             :milestone, bm1, 2027-01-15, 0d
+    section Secure systems foundation
+    M365 identity and collaboration          :b4, 2027-01-18, 2027-02-26
+    Managed admin access and PAW PIM pilot   :b5, 2027-01-25, 2027-03-05
+    Accounting and payroll test setup        :b6, 2027-02-01, 2027-03-05
+    Foundation access checkpoint             :milestone, bm2, 2027-03-05, 0d
+    section Business system migration
+    Access VB client data mapping and clean  :b7, 2027-02-15, 2027-04-09
+    Client contacts import rehearsal         :b8, 2027-03-22, 2027-04-16
+    COA customer vendor and balances         :b9, 2027-03-22, 2027-04-23
+    Billing AR AP and contract controls      :b10, 2027-04-12, 2027-05-14
+    Payroll worker classification and setup  :b11, 2027-04-12, 2027-05-14
+    section Reconciliation and adoption
+    Office staff and consultant pilot        :b12, 2027-05-17, 2027-06-11
+    Billing AP AR parallel processing        :b13, 2027-06-01, 2027-07-09
+    Payroll parallel and tax reconciliation  :b14, 2027-06-01, 2027-07-09
+    Restore permissions and security tests   :b15, 2027-06-08, 2027-06-30
+    Financial acceptance checkpoint          :milestone, bm3, 2027-07-12, 0d
+    section Controlled go live
+    Final exports opening balances signoff   :b16, 2027-07-13, 2027-07-26
+    Phased financial processing cutover      :b17, 2027-07-27, 2027-08-16
+    Hypercare first cycle and reconciliation :b18, 2027-08-10, 2027-08-30
+    Operational handoff and closure          :milestone, bm4, 2027-08-31, 0d
+```
+
+**Conditional activities:** PAWs and PIM require actual license and device procurement; Azure Bastion would be scoped **only if** PCP chooses private Azure VM workloads. No Bastion purchase or private VM deployment is asserted by this timeline. Financial gates can postpone cutover if exports, reconciliation, tax classification, or access testing fail.
+
+## Gantt C — Integrated academic-to-implementation roadmap, November 2026–August 2027
+
+This is a **portfolio-level roadmap**. Its swimlanes represent separate owners and approval authorities. The student team's deliverable ends November 30; a fictional PCP sponsor must separately authorize the production project. **The academic milestone is not permission to deploy, purchase software, or migrate real data.**
+
+```mermaid
+gantt
+    title C - Academic design handoff and PCP future-state roadmap
+    dateFormat YYYY-MM-DD
+    axisFormat %b %Y
+    section Academic team - ISM 4300
+    Design and working website prototype       :done, c1, 2026-11-02, 2026-11-06
+    Business software analysis and Gantt       :c2, 2026-11-06, 2026-11-18
+    Integrated report review and packaging     :c3, 2026-11-18, 2026-11-29
+    Submit academic project                    :milestone, cm1, 2026-11-30, 0d
+    section Fictional PCP sponsor - approval
+    Review proposal and confirm actual scope   :c4, 2026-12-01, 2027-01-15
+    Authorize financing licensing and staff    :milestone, cm2, 2027-01-15, 0d
+    section Fictional PCP implementation team
+    Cloud identity and accounting foundation   :c5, 2027-01-18, 2027-03-05
+    Client and financial data preparation      :c6, 2027-02-15, 2027-05-14
+    Office training pilots and reconciliations :c7, 2027-05-17, 2027-07-09
+    Approve financial cutover                  :milestone, cm3, 2027-07-12, 0d
+    Staged financial cutover and hypercare     :c8, 2027-07-13, 2027-08-30
+    Operations handoff                         :milestone, cm4, 2027-08-31, 0d
+```
+
+### Figure captions for direct report use
+- **Figure A — Academic Project Gantt:** Scheduled student-group production, review and submission of the ISM 4300 case deliverables, November 2–30, 2026. Only repository-supported technical activities are marked completed.
+- **Figure B — Proposed PCP Implementation Gantt:** Hypothetical migration of outsourced business services to PCP-managed financial operations, December 2026–August 2027; includes authorization, configuration, data preparation, parallel processing and controlled cutover.
+- **Figure C — Integrated Roadmap:** Shows the handoff boundary between an academic recommendation and a separate, hypothetical PCP implementation requiring management approval and funding.
+
+### Cross-chart milestone correspondence
+| Milestone | Academic Gantt A | PCP Gantt B | Integrated roadmap C |
+| --- | --- | --- | --- |
+| Group technical design foundation | Nov 2–6 | Not a company implementation task | Academic lane (Nov 2–6) |
+| Academic review-ready sections | Nov 18 | N/A | Academic report integration |
+| Course submission | Nov 30 | N/A | Explicit academic submission milestone |
+| PCP sponsor approval | N/A | Jan 15 | Fictional sponsor authorization milestone |
+| Access/financial system baseline | N/A | Mar 5 | Cloud and accounting foundation phase |
+| Reconciliation acceptance | N/A | Jul 12 | Proposed cutover approval |
+| Final PCP handoff | N/A | Aug 31 | Fictional operations handoff |
+
+---
 ## Critical dependency and handoff register
 | ID | Activities / deliverable | Predecessor / entry condition | Target finish | Acceptance owner |
 | --- | --- | --- | --- | --- |
@@ -77,15 +149,7 @@ gantt
 - **IT / security lead:** identity, endpoint, access controls, migration controls, backups, audit events and security testing.
 - **Vendor implementation/support contact:** product configuration and troubleshooting without transferring PCP's final approval authority.
 
-## Academic project delivery checkpoint (separate from company rollout)
-| Date range | Student-group activity |
-| --- | --- |
-| Nov 2–6, 2026 | Website, employee demo, architecture, documentation, DFD groundwork |
-| Nov 6–13 | Confirm off-the-shelf finance/payroll product, list prices, assumptions and owner |
-| Nov 13–18 | Complete migration narrative, business workflow responsibility matrix, draft Gantt |
-| Nov 18–23 | Integrate report narrative, source citations, diagram exports and screenshots |
-| Nov 23–25 | Group functional and requirements QA, cross-section consistency check |
-| Nov 26–29 | Revise and package after reviewer comments |
-| Nov 30 | Submit academic deliverable |
+## Academic delivery details
+The more detailed student delivery schedule now appears in **Gantt A**, and the relationship to the fictional implementation appears in **Gantt C**. The department's requested migration timeline remains **Gantt B**. Do not interpret proposed student tasks as completed until the actual artifacts and group review support that claim.
 
 **Critical distinction:** Neither the proposed company go-live nor any cloud implementation has been carried out by the student group. The functional website is a synthetic-data academic demonstration.
