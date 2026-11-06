@@ -18,3 +18,29 @@ header nav{flex-wrap:wrap;gap:18px}
 .service-link{display:inline-block;margin-top:14px;font-size:13px;font-weight:800;color:#187f71;text-decoration:underline;text-underline-offset:4px}
 .content-intro a{color:#148376;text-decoration:underline}
 @media(max-width:650px){header nav{overflow:visible;white-space:normal}.nav-dropdown{left:0;min-width:min(260px,80vw)}}
+
+/* Fictional staff management demonstration */
+.rolebar{display:flex;align-items:end;gap:20px;flex-wrap:wrap;background:#fff;padding:22px;border:1px solid #d6e5e1;border-radius:8px;margin:25px 0}
+.rolebar>div{min-width:240px}.rolebar p{flex:1;color:#637983;font-size:13px;line-height:1.6;margin:0}.rolebar label,.record-panel label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
+.rolebar select,.record-panel input,.record-panel select,.record-panel textarea{font:inherit;padding:11px 12px;border:1px solid #abc5c1;border-radius:5px;background:#fff;max-width:100%;width:100%}
+.rolebar select:focus-visible,.record-panel :is(input,select,textarea,button):focus-visible,.directory button:focus-visible{outline:3px solid #6ddbc6;outline-offset:2px}
+.small-primary,.secondary-btn{font:inherit;font-size:13px;font-weight:700;padding:11px 15px;cursor:pointer;border-radius:5px}
+.small-primary{background:#1a8578;border:1px solid #1a8578;color:#fff}.small-primary:hover{background:#11675d}
+.secondary-btn{background:#fff;color:#145e68;border:1px solid #a9c5c4}.secondary-btn:hover{background:#e4f4ef}
+.workspace-row{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.workspace-row h2{margin:8px 0;font-size:26px}
+.directory-controls{display:grid;grid-template-columns:2fr 1fr auto;gap:16px;align-items:end}.directory-controls>div{min-width:0}
+.directory-controls .checkbox-row{padding-bottom:13px}.checkbox-row label{font-size:12px;font-weight:normal;display:flex;align-items:center;gap:6px}.checkbox-row input{width:auto}
+.directory .client{gap:15px}.client .secondary-btn{margin-left:auto;white-space:nowrap}.client-clickable{border-color:#d8e6e3}
+.record-panel{margin-top:22px;background:white;border:1px solid #d4e4e1;padding:30px;border-radius:8px}
+.record-panel h3{font-size:21px;margin:24px 0 14px}.record-panel[hidden],.directory [hidden],.workspace [hidden]{display:none!important}
+.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:15px 0}
+.detail-grid div{background:#f1f7f5;border-radius:6px;padding:15px;min-width:0;overflow-wrap:anywhere}
+.detail-grid dt{font-size:11px;color:#58717a;margin-bottom:6px}.detail-grid dd{margin:0;font-size:15px;font-weight:700}
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.workflow{margin-top:25px;border-top:1px solid #dfebe7;padding-top:15px}.workflow>p{color:#698087;font-size:13px}
+.stage-track{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;padding:0;margin:22px 0}
+.stage-track li{text-align:center;background:#edf0ef;border-top:5px solid #c7d1ce;padding:12px 4px;font-size:11px;overflow-wrap:anywhere}
+.stage-track li.stage-complete{background:#e2f4ee;border-color:#329a7f}.stage-track li[aria-current=step]{font-weight:800}
+.workflow form{display:grid;gap:10px;max-width:570px}.workflow form .small-primary{justify-self:start;margin-top:5px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px;margin:22px 0}.workspace-feedback{font-weight:700;color:#287468;min-height:22px;margin:20px 0}
+@media(max-width:760px){.directory-controls{grid-template-columns:1fr}.directory-controls .checkbox-row{padding-bottom:0}.detail-grid,.form-grid{grid-template-columns:1fr}.stage-track li{font-size:9px}.rolebar>div{width:100%}}
