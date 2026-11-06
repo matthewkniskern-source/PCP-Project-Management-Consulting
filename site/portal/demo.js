@@ -48,9 +48,9 @@ function renderList(){
  const found=records.filter(r=>(showArchived||!r.archived)&&(!service||r.service===service)&&[r.company,r.contact,r.service,r.location,r.consultant,r.stage].some(v=>v.toLowerCase().includes(term))).sort((a,b)=>a.company.localeCompare(b.company));
  results.replaceChildren();
  found.forEach(r=>{const article=el("article",undefined,"client client-clickable"),name=el("h3",r.company),meta=el("p","Contact: "+r.contact+" · "+r.location);
- const badge=el("span",r.service+(r.archived?" · Archived":""));const open=button("View details →","view",r.id);open.setAttribute("aria-label","View fictional client "+r.company);
+ const badge=el("span",r.service+(r.archived?" · Archived":""));const open=button("View details →","view",r.id);open.setAttribute("aria-label","View sample client "+r.company);
  article.append(name,meta,badge,open);results.append(article);});
- count.textContent=found.length+" fictional client"+(found.length===1?"":"s")+" found";
+ count.textContent=found.length+" sample client"+(found.length===1?"":"s")+" found";
  if(!found.length)results.append(el("p","No matching demonstration records."));
  updateMetrics();
 }
@@ -79,7 +79,7 @@ function setRole(){
 }
 function showEditor(r){
  if(!canManage())return;
- $("editor-title").textContent=r?"Edit fictional client":"Add fictional client";
+ $("editor-title").textContent=r?"Edit sample client":"Add sample client";
  $("client-id").value=r?r.id:"";$("client-company").value=r?r.company:"";$("client-contact").value=r?r.contact:"";$("client-location").value=r?r.location:"";
  $("client-service").value=r?r.service:services[0];$("client-consultant").value=r?r.consultant:"";$("client-stage").value=r?r.stage:stages[0];
  $("editor-panel").hidden=false;$("editor-panel").scrollIntoView({behavior:"smooth",block:"start"});$("client-company").focus();
@@ -91,25 +91,25 @@ function saveClient(event){
  let r;
  if(id){r=records.find(x=>x.id===id);if(!r)return;Object.assign(r,fields);}
  else {r={id:"demo-"+Date.now()+"-"+Math.floor(Math.random()*10000),...fields,note:"",archived:false};records.push(r);}
- persist();$("editor-panel").hidden=true;renderList();choose(r.id);feedback("Fictional client record saved in this browser.");
+ persist();$("editor-panel").hidden=true;renderList();choose(r.id);feedback("Client record saved in this browser (sample data only).");
 }
 results.addEventListener("click",event=>{const b=event.target.closest("button[data-action='view']");if(b)choose(b.dataset.id);});
 $("record-actions").addEventListener("click",event=>{
  const b=event.target.closest("button[data-action]");if(!b||!canManage())return;
  const r=records.find(x=>x.id===b.dataset.id);if(!r)return;
  if(b.dataset.action==="edit")showEditor(r);
- if(b.dataset.action==="archive"&&window.confirm("Archive this fictional client record?")){r.archived=true;persist();renderList();renderDetails();feedback("Demo record archived.");}
+ if(b.dataset.action==="archive"&&window.confirm("Archive this sample client record?")){r.archived=true;persist();renderList();renderDetails();feedback("Demo record archived.");}
  if(b.dataset.action==="restore"){r.archived=false;persist();renderList();renderDetails();feedback("Demo record restored.");}
 });
 $("workflow-form").addEventListener("submit",event=>{
  event.preventDefault();const r=records.find(x=>x.id===selected);if(!r||r.archived||!canWorkflow())return;
  const stage=$("workflow-stage").value;if(!stages.includes(stage))return;
- r.stage=stage;r.note=$("workflow-note").value.trim().slice(0,300);persist();renderList();renderDetails();feedback("Fictional engagement status updated locally.");
+ r.stage=stage;r.note=$("workflow-note").value.trim().slice(0,300);persist();renderList();renderDetails();feedback("Engagement status updated in this browser.");
 });
 $("client-form").addEventListener("submit",saveClient);
 $("new-client").addEventListener("click",()=>showEditor(null));
 $("cancel-edit").addEventListener("click",()=>{$("editor-panel").hidden=true;});
 $("close-record").addEventListener("click",()=>{selected=null;$("record-panel").hidden=true;});
-$("reset-demo").addEventListener("click",()=>{if(!window.confirm("Reset all locally saved fictional records to the initial demo data?"))return;records=seed.map(r=>({...r}));persist();selected=null;$("record-panel").hidden=true;$("editor-panel").hidden=true;search.value="";filter.value="";$("show-archived").checked=false;renderList();feedback("Demonstration records reset.");});
+$("reset-demo").addEventListener("click",()=>{if(!window.confirm("Reset all locally saved fictional records to the initial demo data?"))return;records=seed.map(r=>({...r}));persist();selected=null;$("record-panel").hidden=true;$("editor-panel").hidden=true;search.value="";filter.value="";$("show-archived").checked=false;renderList();feedback("Sample records reset.");});
 role.addEventListener("change",setRole);search.addEventListener("input",renderList);filter.addEventListener("change",renderList);$("show-archived").addEventListener("change",renderList);
 setRole();
