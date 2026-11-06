@@ -1,231 +1,125 @@
 # Project Consultants Plus (PCP)
-### ISM 4300 — Project 3 | Business Systems Modernization & Secure Web Presence
 
-> **Status:** Planning and development · **Academic submission:** November 30, 2026  
-> **Project type:** Academic case study, solution architecture, and functional website prototype  
-> **Client:** Project Consultants Plus (PCP), a fictionalized case-study consulting business based in Las Vegas, Nevada
+**ISM 4300 · Project 3 — Business Systems Modernization and Secure Web Presence**
 
-## Project Overview
+> **Current status (November 6, 2026):** Public website, employee workspace demonstration, and technical design documentation are published. Business software selection, financial/process migration recommendations, consolidated implementation planning, and final group submission remain in progress.  
+> **Course deadline:** November 30, 2026  
+> **Scenario:** Fictional project-management consulting organization based in Las Vegas, Nevada. This repository is an academic project, not a website or system operated by an actual PCP business.
 
-Project Consultants Plus is a project-management consulting firm facing the challenges of growth, geographically distributed consultants, fragmented client records, and dependence on outsourced administrative services. The case describes a small office network, an aging Microsoft Access database with a Visual Basic front end, limited public web presence, and a need for more effective collaboration and remote access.
+**[View the live website](https://pcp-consulting-project.netlify.app/)** · **[Technical documentation](https://pcp-consulting-project.netlify.app/documentation.html)** · **[Employee portal demonstration](https://pcp-consulting-project.netlify.app/portal/)** · **[Academic Gantt](https://pcp-consulting-project.netlify.app/academic-gantt.html)**
 
-This project develops a **proposed business and IT modernization strategy** that connects four areas:
+## Project overview
 
-1. **Business-process migration:** Recommend how PCP could bring accounting, accounts payable/receivable, billing, payroll, and related services under internal management.
-2. **Software selection and cost:** Compare appropriate commercial products and document current pricing, licensing assumptions, and implementation trade-offs.
-3. **Network and communications:** Design a scalable, cloud-first solution for secure collaboration among office personnel and consultants.
-4. **Website and employee portal:** Develop an approximately ten-page public-facing website and a demonstrative staff portal for client/contact lookup.
+PCP's scenario combines a limited public web presence, an aging Microsoft Access/Visual Basic client database, decentralized information practices, geographically distributed consultants, and outsourced accounting, payroll, accounts payable/receivable, and billing. The assignment calls for a coordinated business and technology response—not merely a redesigned website.
 
-The deliverable combines a working static website prototype with supporting architecture, migration planning, cost analysis, and implementation documentation. **It is not a production deployment of PCP's financial, identity, or client-record systems.**
+The current repository documents and demonstrates the **technical workstream**: a public website, sample-data employee workspace, proposed Zero Trust network and identity architecture, communications/collaboration design, data-flow analysis, website storyboard, and academic development schedule. The full organizational recommendation remains subject to the team's business inputs and final integration.
 
-## Business Context
+The case describes approximately twenty consultants and two office staff, with a small peer-to-peer office network and a need for secure remote collaboration.
 
-The case identifies approximately twenty consultants and two office staff, with the firm's founders frequently working remotely and serving clients domestically and internationally. PCP's initial technology constraints include:
+## What can be reviewed today
 
-- Three peer-to-peer office computers without a dedicated server.
-- Limited office internet connectivity and secure remote-access capability.
-- Client data maintained in a Microsoft Access/VB application.
-- Payroll, billing, accounts payable and receivable handled by an outside provider.
-- A minimally functional public website.
-- Separate productivity and specialty software used by personnel and consultants.
-
-**Business goal:** Centralize information, improve communication and client service, reduce avoidable operational friction, and establish a defensible path to internal business operations without overbuilding infrastructure for a small organization.
-
-## Proposed Solution
-
-| Area | Proposed approach | Delivery in this repository |
+| Deliverable | Current evidence | Status / limitation |
 | --- | --- | --- |
-| Public website | Responsive HTML, CSS, and JavaScript site | Functional prototype planned |
-| Employee portal | Distinct portal entry point and role-oriented client directory | Demonstration with fictional data planned |
-| Identity | Microsoft Entra ID, MFA, role-based access and conditional access | Architecture recommendation only |
-| Remote access | Zero Trust Network Access (ZTNA) / identity-aware application access | Architecture recommendation only |
-| Administrative access | Privileged management path using Azure Bastion where private VMs are required | Architecture recommendation only |
-| Data | Centrally managed client records in an appropriately protected platform | Data model and migration recommendation |
-| Collaboration | Microsoft 365, Teams, SharePoint and associated governance | Product and cost evaluation planned |
-| Finance | Cloud-hosted accounting/payroll software, subject to feature and cost comparison | Vendor recommendation and migration plan |
-| Security operations | Centralized logs, least privilege, access reviews, backups and recovery | Control and validation documentation |
+| Public consulting website | [Website](https://pcp-consulting-project.netlify.app/) · [HTML source](site/index.html) | **Implemented**: responsive static pages for company information and service discovery |
+| Employee workspace | [Portal entry](https://pcp-consulting-project.netlify.app/portal/) · [Demonstration JavaScript](site/portal/demo.js) | **Implemented demonstration**: fictional client records, search, record handling, and workflow states; simulated role views, **not** real authentication |
+| Network / Zero Trust design | [Architecture documentation](https://pcp-consulting-project.netlify.app/network-architecture.html) | **Proposed architecture**: separate public, staff, data and privileged administrative trust boundaries |
+| Communications and groupware | [Communications plan](https://pcp-consulting-project.netlify.app/communications.html) | **Proposed design**: Microsoft 365/Teams/SharePoint, managed identities, document governance and remote collaboration |
+| Business data flows | [Context and Level 0 diagrams](https://pcp-consulting-project.netlify.app/data-flow-diagrams.html) | **Documented models**: client, consultant, office and finance interactions |
+| Website storyboard | [Visual storyboard](https://pcp-consulting-project.netlify.app/website-storyboard.html) · [Source notes](docs/storyboard/website-storyboard.md) | **Completed design artifact**: site hierarchy, navigation, and example user journeys |
+| Academic development schedule | [November 2–30 Gantt](https://pcp-consulting-project.netlify.app/academic-gantt.html) | **Published planning artifact**: development milestones and submission checkpoints |
 
-Vendor selections are **provisional** until the team's comparison and pricing research is completed.
+**Important distinction:** The website and employee workspace are functioning *browser demonstrations*. The identity platform, protected production portal, private database, privileged administration path, accounting systems, and enterprise controls are *design recommendations*, not deployed services.
 
-## Security Architecture
+## Technical approach
 
-The proposed design uses **logical separation between public presentation, employee access, protected business applications, private data, and privileged administration**.
+### Public website and staff demonstration
 
-```text
-                    Internet / Public Visitors
-                              |
-                   Public PCP Website (HTTPS)
-                              |
-                     "Employee Portal" link
-                              |
-                   Independent Portal Service
-                              |
-                    Entra ID / MFA / ZTNA
-                              |
-                     Authorized Application
-                              |
-                     Private Client Data Tier
+The public experience is built with static **HTML, CSS, and vanilla JavaScript**, published through Netlify. Public pages cover the organization's profile, services, project management, systems integration, usability testing, IT auditing, consultants and contact details.
 
-    Remote Consultants ----------------> Authorized Portal / M365
+The employee portal link leads to a visibly labeled simulation. Its fictional records and client-side interaction support demonstration of proposed user workflows without exposing real business data. Browser state, role selectors, and presentation logic should not be interpreted as production access controls.
 
-    Privileged Administrators --> Dedicated Admin Identity + MFA
-                              --> Controlled Management Access
-                              --> Azure Bastion (if private VMs exist)
-                              --> Restricted Management Targets
-```
+### Proposed security architecture
 
-**Trust boundaries and intended controls**
+The future-state design separates:
 
-- The public website does not directly query protected client data or expose private database endpoints.
-- Employees use a separately authenticated portal with least-privilege, role-appropriate access.
-- Protected application backends are the only services permitted to access their required data stores.
-- Administrative access uses dedicated privileged identities and an isolated management path; general staff do not use the jump service.
-- Logging, account lifecycle management, monitoring, backup/recovery, and periodic access review form part of the production recommendation.
-- SaaS financial platforms retain their own vendor-supported security and access controls. They are not automatically integrated into the portal.
+1. A public informational website with no direct connection to sensitive business records.
+2. Staff identity and application access using Microsoft Entra ID, MFA, Conditional Access, compliant devices and application-specific authorization.
+3. Protected business applications with server-side access decisions and private data access.
+4. Privileged administration with dedicated identities, hardened privileged-access workstations, time-limited elevation, and controlled management paths. Azure Bastion is considered only if private VM administration is required.
+5. Logging, backup/recovery, vendor access governance, and continuing access review.
 
-**Important:** A public static website or client-side JavaScript password check does **not** enforce real authentication, authorization, or data confidentiality. Any portal included in the academic prototype must use **synthetic records only**, be labeled as a demonstration, and must not be represented as a live Zero Trust implementation. No secrets or real user/client data should be committed to this public repository.
+These are **conceptual controls and target-state components**. The live Netlify portal does not enforce Entra authentication, ZTNA, server-side RBAC, or private data-tier isolation.
 
-## Website Information Architecture
+### Collaboration and information flows
 
-The initial sitemap targets approximately ten user-facing sections:
+The recommended communications approach favors managed collaboration and controlled shared documents rather than ad hoc file transfers or directly accessible office systems. The context and Level 0 DFDs show the separation of client requests, engagement coordination, billing and collaboration from their associated data stores.
 
-| Section | Intended purpose |
-| --- | --- |
-| Home | PCP mission, key capabilities, and calls to action |
-| About | Company background, leadership, experience, and values |
-| Services | Consulting capabilities overview |
-| SDLC Project Management | Project management throughout the system development lifecycle |
-| Systems Integration | Integration planning, implementation and coordination |
-| Usability Testing | Evaluation, testing, and user-experience improvement |
-| IT Auditing | Systems review, technology assessments and auditing |
-| Consultants | Consultant expertise and PMI-certification emphasis |
-| Contact | Inquiry and contact information (demonstration-safe) |
-| Employee Portal | Separate portal entry point and illustrative client/contact lookup |
+## Work still requiring group integration
 
-The website should communicate PCP's mission: **“Bring practical Project Management principles to bear on real-world IT business solutions.”**
+The following items are **not represented as final, approved business recommendations** in this published branch:
 
-### Planned repository structure
+- Comparative accounting/payroll software selection and documented licensing or implementation costs.
+- Specific processes, ownership, staffing and controls for moving payroll, accounts payable/receivable, and billing in-house.
+- Approved migration approach for existing financial and client data, including reconciliation and cutover requirements.
+- The organization-facing implementation Gantt, dependencies, decision gates and realistic adoption timeline.
+- The integrated team report, combined verification evidence and final submission package.
 
-This is a **target structure**, not a claim that every file has already been implemented:
+These components depend on other team members' research, choices and coordination. They will be reflected here **after team review and integration**; work prepared independently or in a contingency branch is not automatically a team-approved outcome.
+
+### Project coordination and ownership
+
+**Team:** Matthew Kniskern, Fernando and Gabriella. **Gabriella is the assigned project manager.**
+
+Matthew has contributed the website framework and employee demonstration, technical network/security and communications architecture, data-flow documentation, storyboard, academic Gantt, and repository implementation/refactoring work. These are **technical workstream contributions**, not a claim of responsibility for the group's financial recommendations, project-management decisions, or final submission.
+
+The project manager coordinates overall integration and submission, with business recommendations and final ownership confirmed collaboratively. Technical readiness does not imply that outstanding group work has been completed or approved.
+
+## Project schedule
+
+**Academic development:** November 2–30, 2026. The [academic Gantt](https://pcp-consulting-project.netlify.app/academic-gantt.html) tracks the technical work and planned integration checkpoints. Remaining group inputs and final review are needed before submission.
+
+**Hypothetical company implementation:** A separate proposed modernization effort would require business sponsorship, verified vendor selection, data readiness, identity/security configuration, pilot testing, financial reconciliation, training, authorized cutover, and operational handoff. Its final sequence, costs and dates are **pending the group's consolidated recommendations**. An academic development Gantt is not a substitute for the company's implementation schedule.
+
+## Repository layout and local preview
 
 ```text
-.
-├── index.html
-├── about.html
-├── services.html
-├── project-management.html
-├── systems-integration.html
-├── usability-testing.html
-├── auditing.html
-├── consultants.html
-├── contact.html
-├── portal/
-│   ├── index.html
-│   └── dashboard.html
-├── css/
-│   └── styles.css
-├── js/
-│   ├── main.js
-│   └── portal-demo.js
-├── assets/
-│   └── images/
-├── docs/
-│   ├── storyboard/
-│   ├── architecture/
-│   └── project-planning/
-└── README.md
+README.md
+netlify.toml                 Netlify publish/build and response headers
+scripts/build-site.mjs       Dependency-free HTML template build
+src/pages/                   Authoritative HTML page sources
+src/partials/                Shared header/navigation and footer fragments
+site/                        Generated static website published by Netlify
+site/portal/demo.js          Fictional employee-workspace interactions
+site/styles.css              Common presentation rules
+site/portal.css              Portal-specific presentation
+site/documentation.css       Technical-documentation presentation
+docs/storyboard/             Storyboard supporting notes
 ```
 
-The frontend is intended to reuse proven patterns from an earlier academic website project while remaining in its **own independent repository and deployment**. That avoids modifications to the author's existing portfolio repository.
-
-## Project Timeline
-
-### Phase I — Academic development and solution design (November 2–30, 2026)
-
-| Dates | Activities |
-| --- | --- |
-| Nov 2–6 | Requirements, scope, initial architecture decisions, coordination and work allocation |
-| Nov 9–13 | Website storyboard, network/security design, software research |
-| Nov 16–22 | Public site and portal prototype, product recommendations, migration planning, Gantt development |
-| Nov 23–25 | Documentation integration, functional testing, security review and quality assurance |
-| Nov 26–29 | Contingency, corrections and final packaging |
-| Nov 30 | Academic submission deadline |
-
-**Internal target:** November 25 for an integrated candidate, allowing contingency before the November 30 submission.
-
-### Phase II — Hypothetical PCP implementation (December 2026–August 2027)
-
-The implementation plan models a **proposed real-world rollout**, not work that the team claims to complete:
-
-| Period | Proposed activities |
-| --- | --- |
-| Dec 2026 | Discovery validation, leadership approval, budget and vendor selection |
-| Jan–Feb 2027 | Cloud/network foundation, identity controls, collaboration setup |
-| Feb–Mar 2027 | Privileged administrative access, security policy and access verification |
-| Mar–May 2027 | Production application configuration, client-data preparation, accounting setup |
-| May–Jun 2027 | Integrated testing, security testing, pilot users and training |
-| Jun–Jul 2027 | Reconciliation and representative parallel financial processing |
-| Aug 2027 | Authorized cutover, stabilization, knowledge transfer and closeout |
-
-No accounting or payroll cutover should occur without **verified reconciliation, staff readiness, tested recovery procedures and business-owner approval**. Actual dates depend on vendor contracts, migration complexity, regulatory requirements and PCP's approval.
-
-## Expected Project Artifacts
-
-- [ ] Responsive public website and approximately ten-page sitemap
-- [ ] Employee portal demonstration with fictional client/contact records
-- [ ] Website storyboard and user navigation flow
-- [ ] Logical cloud/network architecture with trust boundaries
-- [ ] Identity, role-based access and privileged administration rationale
-- [ ] Communications/groupware recommendation and cost comparison
-- [ ] Accounting/payroll software recommendation with documented pricing assumptions
-- [ ] Business-process and data migration strategy
-- [ ] November academic development Gantt
-- [ ] December–August proposed implementation Gantt, milestones and dependencies
-- [ ] Integrated functional/security QA and project handoff documentation
-
-Where useful, supporting data-flow diagrams (DFDs) and risk/control matrices may be added to clarify the proposed system. These are supporting design artifacts rather than evidence of production deployment.
-
-## Local Development
-
-Once the site files are added, a static local web server can be used for preview:
+To preview locally, clone the repository, regenerate the HTML from source, then serve the **`site/`** directory:
 
 ```bash
 git clone https://github.com/matthewkniskern-source/PCP-Project-Management-Consulting.git
 cd PCP-Project-Management-Consulting
-python -m http.server 8000
+node scripts/build-site.mjs
+python -m http.server 8000 --directory site
 ```
 
-Then open **http://localhost:8000**. Python's local server is for development preview, not for production hosting.
+Open `http://localhost:8000`. The build uses Node.js built-in modules; no package-install step is required. Netlify runs `node scripts/build-site.mjs` before publishing `site/`. Update `src/pages/` and `src/partials/` rather than hand-editing generated HTML, and commit the regenerated output alongside source changes.
 
-A static hosting service such as GitHub Pages or Netlify may be used for the public prototype. **Hosting configuration and a live URL should only be documented after deployment is verified.**
+## Next acceptance steps
 
-## Team and Collaboration
+- Integrate the group's approved business recommendations and implementation schedule.
+- Review the completed report for consistency between business assumptions and technical architecture.
+- Record functional, responsive and accessibility checks; resolve material issues.
+- Confirm contribution attribution and package the final course deliverables.
 
-Course project team: **Matthew Kniskern, Fernando, and Gabriella**.
+These are remaining steps, **not completed-test claims**.
 
-Technical areas currently proposed for Matthew include the website framework, portal demonstration, and network/communications architecture, with input into Gantt charts, data-flow diagrams, and integration documentation. Other responsibilities and final submission ownership will be confirmed collaboratively. Attribution should reflect completed contributions rather than presumed assignments.
+## Limitations and purpose
 
-## Assumptions and Limitations
+All names, client records and portal workflows shown in the demonstration are fictional. This repository does not contain live customer information, operational finance systems, or a deployed production identity/security architecture. Licensing and product assumptions require current confirmation before being used for a real procurement decision.
 
-- This repository represents a **course case-study solution**, not an official PCP-owned corporate website.
-- Specific people, records, contact details and transactions shown in the portal should be clearly fictional.
-- The case materials contain inconsistent names and dates; design assumptions should be stated rather than silently treated as verified facts.
-- Licensing prices, available product capabilities, cloud costs and third-party integrations require verification at the point of recommendation.
-- Azure Bastion is a proposed privileged access mechanism **only for workloads that actually require private VM administration**. A fully SaaS/PaaS implementation may not need such VMs.
-- Production deployment would require separate security review, tenant setup, actual identity integration, risk assessment, operations processes and organizational authorization.
+The goal is to show how a modest-sized consulting organization could connect practical systems analysis, a usable web presence, secure collaboration, explicit access boundaries and an appropriately governed business-modernization plan.
 
-## Repository Purpose
-
-The goal is to demonstrate how a small consulting organization can modernize business processes and its public web presence **without compromising the security and maintainability of its internal information systems**.
-
-The project emphasizes practical IT management, security-aware architecture, controlled migration, realistic implementation planning and clear communication of technical trade-offs.
-
----
-
-*Developed for ISM 4300, Project 3. Academic prototype and recommendations; not an affiliated or operational PCP service.*
-
-## Static site source and build
-
-The project remains dependency-free static HTML/CSS/JavaScript, deployed from `site/`. Edit `src/pages/` and shared headers/footers in `src/partials/`, then run `node scripts/build-site.mjs`; Netlify runs this command before publishing. The generated `site/*.html` files are also committed for direct GitHub review. Do not change generated pages without changing their sources.
-
-CSS is separated into `site/styles.css` (shared), `site/portal.css` (employee demonstration), and `site/documentation.css` (storyboard, DFD, academic Gantt and technical documentation). Narrow screens receive a legible Gantt task schedule, a storyboard navigation hierarchy and DFD summaries while the full diagrams remain inspectable. Validate across desktop and mobile after updating templates or styles.
+*ISM 4300 academic project. No affiliation with an operational Project Consultants Plus business is implied.*
