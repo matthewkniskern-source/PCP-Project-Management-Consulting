@@ -1,6 +1,4 @@
-/* Discreet project documentation entry, intentionally outside main navigation */
-footer .footer-documentation{display:inline-block;margin:9px 16px 9px 0;color:#83d7c7;text-decoration:underline;text-underline-offset:4px;font-size:12px;font-weight:600}
-footer .footer-documentation:focus-visible{outline:3px solid #83d7c7;outline-offset:4px}
+
 .doc-content{display:block;max-width:1160px;margin:0 auto;padding:58px 30px 75px}
 .doc-content .content-intro{max-width:850px;margin-bottom:32px}
 .doc-content h2{margin:38px 0 17px;font-size:27px;color:#183341}
