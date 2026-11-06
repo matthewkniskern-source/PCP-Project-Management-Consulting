@@ -44,3 +44,29 @@ header nav{flex-wrap:wrap;gap:18px}
 .workflow form{display:grid;gap:10px;max-width:570px}.workflow form .small-primary{justify-self:start;margin-top:5px}
 .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px;margin:22px 0}.workspace-feedback{font-weight:700;color:#287468;min-height:22px;margin:20px 0}
 @media(max-width:760px){.directory-controls{grid-template-columns:1fr}.directory-controls .checkbox-row{padding-bottom:0}.detail-grid,.form-grid{grid-template-columns:1fr}.stage-track li{font-size:9px}.rolebar>div{width:100%}}
+
+/* Discreet project documentation entry, intentionally outside main navigation */
+footer .footer-documentation{display:inline-block;margin:9px 16px 9px 0;color:#83d7c7;text-decoration:underline;text-underline-offset:4px;font-size:12px;font-weight:600}
+footer .footer-documentation:focus-visible{outline:3px solid #83d7c7;outline-offset:4px}
+.doc-content{display:block;max-width:1160px;margin:0 auto;padding:58px 30px 75px}
+.doc-content .content-intro{max-width:850px;margin-bottom:32px}
+.doc-content h2{margin:38px 0 17px;font-size:27px;color:#183341}
+.doc-content p,.doc-content li{line-height:1.7}
+.doc-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.doc-cards article{background:#fff;border:1px solid #dce7e4;border-radius:8px;padding:24px}
+.doc-cards h3{color:#12313b;margin:6px 0 12px;font-size:21px}
+.doc-cards p{font-size:14px;color:#5b717b}
+.doc-disclaimer{margin:32px 0;padding:21px 23px;background:#e5f1ec;border-left:4px solid #2d9b88;color:#1a4450;line-height:1.65}
+.architecture-figure{margin:32px 0;padding:25px;background:#fff;border:1px solid #dae7e3;border-radius:9px}
+.arch-tier{display:flex;flex-direction:column;align-items:center;gap:6px}
+.arch-node{width:min(550px,100%);background:#edf4f1;border:1px solid #a6cac0;padding:15px 19px;text-align:center;border-radius:7px;display:flex;flex-direction:column;gap:5px}
+.arch-node strong{font-size:15px;color:#113745}.arch-node span{font-size:12px;color:#526b72;line-height:1.5}
+.arch-node.arch-control{background:#e0f5eb;border-color:#389e84}.arch-node.arch-private{background:#e8edf5;border-color:#8ca6c1}.arch-node.arch-public{background:#f3f6f5;border-color:#bbcfc8}
+.arch-arrow{font-size:22px;color:#318f79;font-weight:bold;line-height:1}
+.arch-separation{max-width:760px;text-align:center;margin:20px auto;padding:13px;border-top:2px dashed #c39658;border-bottom:2px dashed #c39658;color:#725b30;font-size:11px;font-weight:bold;letter-spacing:.07em}
+.arch-admin-row{flex-direction:row;justify-content:space-between;align-items:center}.arch-admin-row .arch-node{flex:1;min-width:0}.arch-admin-row .arch-arrow{flex:0 0 auto}
+.architecture-figure figcaption{font-size:12px;color:#617782;margin-top:25px;line-height:1.6}
+.doc-table-wrap{overflow-x:auto}.doc-table{border-collapse:collapse;width:100%;min-width:610px;background:#fff}
+.doc-table th,.doc-table td{text-align:left;vertical-align:top;padding:14px;border:1px solid #d4e3df;font-size:13px;line-height:1.6}
+.doc-table th{background:#e2f0e9;color:#174556}.doc-steps{padding-left:25px}.doc-steps li{margin-bottom:14px}
+@media(max-width:760px){.doc-content{padding:35px 18px 55px}.doc-cards{grid-template-columns:1fr}.arch-admin-row{flex-direction:column}.arch-admin-row .arch-node{width:100%;flex:auto}.arch-admin-row .arch-arrow{transform:rotate(90deg)}.architecture-figure{padding:15px}}
