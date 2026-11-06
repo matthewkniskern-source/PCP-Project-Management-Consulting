@@ -223,3 +223,9 @@ The project emphasizes practical IT management, security-aware architecture, con
 ---
 
 *Developed for ISM 4300, Project 3. Academic prototype and recommendations; not an affiliated or operational PCP service.*
+
+## Static site source and build
+
+The project remains dependency-free static HTML/CSS/JavaScript, deployed from `site/`. Edit `src/pages/` and shared headers/footers in `src/partials/`, then run `node scripts/build-site.mjs`; Netlify runs this command before publishing. The generated `site/*.html` files are also committed for direct GitHub review. Do not change generated pages without changing their sources.
+
+CSS is separated into `site/styles.css` (shared), `site/portal.css` (employee demonstration), and `site/documentation.css` (storyboard, DFD, academic Gantt and technical documentation). Narrow screens receive a legible Gantt task schedule, a storyboard navigation hierarchy and DFD summaries while the full diagrams remain inspectable. Validate across desktop and mobile after updating templates or styles.
