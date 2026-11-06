@@ -155,7 +155,7 @@ The frontend is intended to reuse proven patterns from an earlier academic websi
 
 ### Phase II — Hypothetical PCP implementation (December 2026–August 2027)
 
-The implementation plan models a **proposed real-world rollout**, not work that the student team claims to complete:
+The implementation plan models a **proposed real-world rollout**, not work that the team claims to complete:
 
 | Period | Proposed activities |
 | --- | --- |
