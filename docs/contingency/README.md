@@ -6,7 +6,7 @@
 ## How to assemble a final report quickly
 1. Use [01-final-report-draft.md](01-final-report-draft.md) as the narrative spine. This includes the executive recommendation, case analysis, selected products, costs, migration sequence, network/communications recommendations, risks and conclusion.
 2. Insert the [02-cost-model-and-sources.md](02-cost-model-and-sources.md) tables in the business-software section and update vendor prices/assumptions before submission.
-3. Insert the implementation Gantt from [03-implementation-gantt.md](03-implementation-gantt.md) (Mermaid source plus dated dependency table). Render to an image or recreate in Excel/Project for the final submission. The professor specifically requires a Gantt.
+3. Use [03-implementation-gantt.md](03-implementation-gantt.md) for **three distinct, coordinated Gantts**: A — academic assignment (Nov 2026), B — fictional PCP migration (Dec 2026–Aug 2027), and C — integrated design-to-rollout roadmap. **Figure B is the professor-required migration Gantt**; A and C are supplemental. Export rendered diagram images or recreate them in Excel/Project for final submission.
 4. Add [04-operating-model-migration-and-controls.md](04-operating-model-migration-and-controls.md) as appendices or expand its process, RACI, migration, acceptance, and risk material into the report.
 5. Copy or capture already merged primary-source materials:
    - [Website storyboard](../storyboard/website-storyboard.md)
@@ -21,7 +21,8 @@
 | --- | --- | --- |
 | Bring outsourced payroll, AR/AP, billing, contracts into PCP | 01 §§4–5; 04 | Prepared proposal; business-owner validation required |
 | Recommend actual off-the-shelf accounting software and pricing | 01 §3; 02 | Prepared with sourced snapshot; recheck at submission |
-| Gantt chart for in-housing business functions | 03 | Mermaid Gantt and dependency worksheet prepared; export needed |
+| Gantt chart for in-housing business functions | 03: Gantt B | Fictional rollout Gantt, dependencies and approval gates drafted; figure export needed |
+| Academic project Gantt and integrated roadmap | 03: Gantts A and C | Supplemental charts drafted; figure exports needed |
 | Groupware/communications between office and mobile consultants | 01 §6; existing communications page | Draft and existing diagram ready |
 | Client-facing approximately 10-page site and employee client lookup | Existing `site/` | Functioning academic prototype; user previously performed QA |
 | Website storyboard made with software | Existing `docs/storyboard/` Mermaid markdown | Diagram available; export to visual software output for submission |
@@ -35,7 +36,7 @@
 - Final license allocation: 22 collaboration seats is a budget scenario rather than proof that every contractor needs a full Microsoft 365 license.
 - Whether PCP will host any private Azure VMs. **Do not budget or deploy Azure Bastion by default.**
 - PIM requires suitable license coverage for role users; license scoping and vendor quotes need procurement confirmation.
-- Course requirement may call for a *software-tool-produced* storyboard and *Gantt chart*; Markdown source alone should not be described as the final graphical deliverable.
+- Course requires a Gantt and a software-created website storyboard. Render and inspect all three Mermaid Gantts and the storyboard in a software tool; Markdown source alone should not be described as the final graphical deliverable.
 
 ## Branch-use instructions
 For a future merge, update this branch from `main`, resolve conflicts, then open a PR **only when integration is appropriate**. Keep contingency drafts under `docs/contingency/` so they will not alter the working website or Netlify publish directory. A clean future PR can cherry-pick approved files instead of merging every draft indiscriminately.
